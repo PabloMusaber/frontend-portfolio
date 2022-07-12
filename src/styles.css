@@ -1,1 +1,305 @@
-/* You can add global styles to this file, and also import other style files */
+.banner-image {
+    background-image: url("src\assets\img\banner-img.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+  }
+  
+  svg.image-filter {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+  }
+  
+  .square {
+    z-index: 2;
+    text-align: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 58px;
+    line-height: 75px;
+    color: #FFFFFF;
+    border: 3px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  
+  
+  .square > #titulo{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 37px;
+    margin-top: auto;
+  }
+  
+  
+  .navbar-nav{
+    align-items: flex-end;
+    margin:2%;
+  }
+  
+  .nav-item {
+    padding-left: 33px;
+  }
+  
+  
+  #logoArg {
+    max-height: 30px;
+   
+  }
+  
+  .container-foto {
+    max-width: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    margin-top: -100px;
+    margin-bottom: 30px;
+    position: relative;
+  
+    border-radius: 50%;
+    z-index: 3;
+    border: 7px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .container-foto > #perfil {
+    position: absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+    border-radius: 50%;
+  }
+  
+  #about {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+  }
+  
+  .col-md-6 {
+    max-width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+  }
+  
+  .col-md-10 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 90px;
+  }
+  
+  section.experience {
+    background: rgba(255, 205, 60, 0.25);
+    padding: 30px 0;
+    text-align: center;
+  }
+  
+  #title {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 37px;
+    text-align: center;
+    color: #ff9234;
+    margin-bottom: 35px;
+  }
+  
+  #container-exp {
+    max-width: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    position: relative;
+    display:flex;
+    align-items: center;
+    border-radius: 10%;
+    border: 7px solid rgba(255, 146, 52, 0.2);
+  }
+  
+  #container-exp > #foto-exp {
+    position: relative;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border: 0;
+  }
+  
+  
+  .row{
+    margin-bottom: 45px;
+  }
+  
+  #texto-exp{
+    margin-bottom: 55px;
+  }
+  
+  #texto-exp > #title{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FF9234;
+    margin-bottom: 0;
+  }
+  
+  #texto-exp > #desc{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+  
+  }
+  
+  section.education {
+    padding: 30px 0;
+    text-align: center;
+  }
+  
+  #certificates{
+    margin-bottom: -25px;
+  }
+  
+  
+  
+  
+  
+  /* SKILLS Circles */
+  
+  .circle {
+    width: 200px;
+    margin: 6px 6px 20px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    line-height: 1.2;
+    
+  }
+  
+  .circle canvas {
+    vertical-align: top;
+    width: 200px !important;
+    height: 200px !important;
+  
+  }
+  
+  .circle strong {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    color: black;
+    
+  }
+  
+  .circle strong i {
+    font-style: normal;
+    font-size: 0.6em;
+    font-weight: normal;
+  }
+  
+  .circle span {
+    display: block;
+    color: rgb(0, 0, 0);
+    margin-top: -48%;
+    margin-bottom: 45%;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  
+  /* ========================= */
+  
+  .card{
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    margin:auto;
+    margin-bottom: 15%;
+    height: 88.5%;
+  }
+  
+  .card-title{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    color: #FF9234;
+  }
+  
+  .card-text{
+    font-family: 'Poppins';
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+  }
+  
+  #card-img-edu{
+    width: 100%;
+    height: 15vw;
+    object-fit: scale-down;
+  }
+  
+  
+  
+  section.footer {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(53, 208, 186, 0) 17.9%, rgba(53, 208, 186, 0.6) 100%);
+    padding: 30px 0;
+    text-align: center;
+  }
+  
+  #footer-text{
+    font-family: Poppins;
+    margin-top: 8%;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 36px;
+    
+  }
+  
+  
+  /* ------------ SCROLLBAR ------------ */
+  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px grey;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(53, 208, 186, 0.8);
+    border-radius: 3.5px;
+  }

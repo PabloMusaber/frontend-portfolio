@@ -27,9 +27,16 @@
               "src/assets"
             ],
             "styles": [
+              "src/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/js/jquery.min.js",
+              "src/js/bootstrap.bundle.min.js",
+              "src/main.js",
+              "src/js/circle-progress.js"
+              
+            ]
           },
           "configurations": {
             "production": {
@@ -96,7 +103,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+            ]
           }
         }
       }

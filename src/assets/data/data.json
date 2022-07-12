@@ -1,0 +1,71 @@
+{
+    "name": "Pablo Musaber",
+	"title": "Full Stack Developer Jr",
+    
+	
+	"introduction":"Estudiante de Ingeniería en Sistemas de la Información UTN FRM",
+	
+	"experience":[{
+		"company":"MercadoLibre",
+		"description":"Backend developer"
+	},
+	{
+		"company":"Amazon",
+		"description":"Backend developer"
+	},
+	{
+		"company":"Spotify",
+		"description":"Backend developer"
+	}],
+	
+	"education":[{
+		"company":"Universidad Tecnológica Nacional",
+		"title":"Ingeniería en Sistemas de la Información",
+		"anio":"2019-2023"
+	},{
+		"company":"Platzi",
+		"title":"Escuela de Data Science",
+		"anio":"2023"
+	},{
+		"company":"Argentina Programa",
+		"title":"Programador Full Stack Web",
+		"anio":"2022"
+	}],
+	
+	"skills":[{
+		"name":"Python",
+		"percent":"77"
+	},{
+		"name":"HTML",
+		"percent":"85"
+	},{
+		"name":"CSS",
+		"percent":"50"
+	},{
+		"name":"SQL",
+		"percent":"90"
+	},{
+		"name":"Javascript",
+		"percent":"55"
+	},{
+		"name":"Java",
+		"percent":"70"
+	}],
+	
+	"projects":[{
+		"title":"Twitter Bot",
+		"description":"Bot de Twitter que publica frases de Charly García"
+	},{
+		"title":"Microblue Computación",
+		"description":"Sitio web de empresa familiar"
+	},{
+		"title":"Snake Game",
+		"description":"Clásico snake game"
+	},{
+		"title":"Mi Portafolio",
+		"description":"Este sitio web"
+	}],
+	
+	"footer":"Diseñado por Pablo Musaber | © Todos los derechos reservados 2022"
+
+}
