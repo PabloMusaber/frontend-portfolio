@@ -21,7 +21,9 @@
     "boostrap": "^2.0.0",
     "jquery": "^3.6.0",
     "jquery-circle-progress": "^1.2.2",
+    "ngx-toastr": "^14.3.0",
     "rxjs": "~7.5.4",
+    "toastr": "^2.1.4",
     "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
   },
