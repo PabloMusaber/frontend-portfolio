@@ -23,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { interceptorProvider } from './interceptors/header-interceptor.service';
+import { EditExpComponent } from './componentes/experience/edit-exp.component';
+import { NewExpComponent } from './componentes/experience/new-exp.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { interceptorProvider } from './interceptors/header-interceptor.service';
     IniciarSesionComponent,
     PortfolioComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    EditExpComponent,
+    NewExpComponent
   ],
   imports: [
     BrowserModule,

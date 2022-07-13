@@ -37,20 +37,23 @@ export class ExperienceComponent implements OnInit {
       }
     );
   }
-  borrar(id: number) {
-    this.experienciaService.delete(id).subscribe(
-      data => {
-        this.toastr.success('Producto Eliminado', 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
-        });
-        this.cargarExperiencias();
-      },
-      err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
-          timeOut: 3000, positionClass: 'toast-top-center',
-        });
-      }
-    );
+
+  borrar(id_exp: number) {
+    if(confirm("¿Estás seguro que deseas eliminar esta información?")){
+      this.experienciaService.delete(id_exp).subscribe(
+        data => {
+          this.toastr.success('Experiencia Eliminada', 'OK', {
+            timeOut: 3000, positionClass: 'toast-top-center'
+          });
+          this.cargarExperiencias();
+        },
+        err => {
+          this.toastr.error(err.error.mensaje, 'Fail', {
+            timeOut: 3000, positionClass: 'toast-top-center',
+          });
+        }
+      );
+    }
   }
 
 }

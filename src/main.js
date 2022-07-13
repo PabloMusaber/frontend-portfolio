@@ -20,7 +20,6 @@ function animateElements() {
         if (elementPos < topOfWindow + $(window).height() - 30 && !animate) {
             $(this).data('animate', true);
             $(this).find('.circle').circleProgress({
-                //startAngle: -Math.PI / 2,
                 value: percent / 100,
                 size : 400,
                 thickness: 15,

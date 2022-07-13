@@ -4,6 +4,8 @@ import { IniciarSesionComponent } from './componentes/iniciar-sesion/iniciar-ses
 import { LoginComponent } from './componentes/login/login.component';
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { NewExpComponent } from './componentes/experience/new-exp.component';
+import { EditExpComponent } from './componentes/experience/edit-exp.component';
 
 
 const routes: Routes = [
@@ -11,7 +13,11 @@ const routes: Routes = [
   {path: 'iniciar-sesion',component:IniciarSesionComponent},
   {path: 'login',component:LoginComponent},
   {path: 'registro',component:RegistroComponent},
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  {path: 'nueva-exp', component: NewExpComponent},
+  {path: 'editar-exp/:id', component: EditExpComponent},
+
+  {path: '**', redirectTo: '', pathMatch: 'full'}
+  
 ];
 
 @NgModule({
