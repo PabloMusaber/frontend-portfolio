@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { Experiencia } from 'src/app/model/experiencia';
+import { ToastrService } from 'ngx-toastr';
+import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-experience',
@@ -7,13 +10,47 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
-experienceList:any;
-  constructor(private datosPortfolio:PortfolioService) { }
 
-  ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data=>{
-      this.experienceList=data.experience;
-    })
+  experiencias: Experiencia[] = [];
+
+  constructor(private experienciaService: ExperienciaService, 
+    private toastr: ToastrService, 
+    private tokenService: TokenService) { }
+    isLogged = false;
+
+  ngOnInit() {
+    this.cargarExperiencias();
+    if(this.tokenService.getToken()){
+      this.isLogged= true;
+    }else{
+      this.isLogged = false;
+    }
+  }
+
+  cargarExperiencias(): void {
+    this.experienciaService.lista().subscribe(
+      data => {
+        this.experiencias = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+  borrar(id: number) {
+    this.experienciaService.delete(id).subscribe(
+      data => {
+        this.toastr.success('Producto Eliminado', 'OK', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.cargarExperiencias();
+      },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center',
+        });
+      }
+    );
   }
 
 }

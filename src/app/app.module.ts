@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
@@ -42,7 +45,9 @@ import { interceptorProvider } from './interceptors/header-interceptor.service';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
