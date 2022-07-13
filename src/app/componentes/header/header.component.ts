@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Portfolio } from 'src/app/model/portfolio';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +9,27 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  name:any;
-  title:any;
-  constructor(private datosPortfolio:PortfolioService) { }
+
+  name = '';
+  title = '';
+  isLogged = false;
+
+  constructor(private portfolioService:PortfolioService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      this.name=data.name;
-      this.title=data.title;
+    this.portfolioService.obtenerDatos().subscribe(
+      data => {
+        this.name=data.name;
+        this.title=data.title;
     });
+    if(this.tokenService.getToken()){
+      this.isLogged= true;
+    }else{
+      this.isLogged = false;
+    }
   }
 
+  goEdit(): void{
+    document.location.href="/editar-data";
+  }
 }

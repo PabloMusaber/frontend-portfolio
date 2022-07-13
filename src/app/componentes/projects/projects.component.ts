@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { Proyecto } from 'src/app/model/proyecto';
+import { ToastrService } from 'ngx-toastr';
+import { ProyectoService } from 'src/app/servicios/proyecto.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,13 +10,52 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  projectsList:any;
-  constructor(private datosPortfolio:PortfolioService) { }
+
+  proyectos: Proyecto[] = [];
+  isLogged = false;
+
+  constructor(
+    private proyectoService: ProyectoService,
+    private toastr: ToastrService, 
+    private tokenService: TokenService
+    ) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data=>{
-      this.projectsList=data.projects;
-    })
+    this.cargarProyectos();
+    if(this.tokenService.getToken()){
+      this.isLogged= true;
+    }else{
+      this.isLogged = false;
+    }
+  }
+
+  cargarProyectos(): void {
+    this.proyectoService.lista().subscribe(
+      data => {
+        this.proyectos = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  borrar(id_proy: number) {
+    if(confirm("¿Estás seguro que deseas eliminar esta información?")){
+      this.proyectoService.delete(id_proy).subscribe(
+        data => {
+          this.toastr.success('Proyecto Eliminado', 'OK', {
+            timeOut: 3000, positionClass: 'toast-top-center'
+          });
+          this.cargarProyectos();
+        },
+        err => {
+          this.toastr.error(err.error.mensaje, 'Fail', {
+            timeOut: 3000, positionClass: 'toast-top-center',
+          });
+        }
+      );
+    }
   }
 
 }

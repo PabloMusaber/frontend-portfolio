@@ -11,8 +11,7 @@ const AUTHORITIES_KEY = 'AuthAuthorities';
 export class TokenService {
 
   roles: Array<string> = [];
-
-
+  
   constructor() { }
 
   public setToken(token: string): void{

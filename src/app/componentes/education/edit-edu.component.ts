@@ -1,22 +1,22 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { EducacionService } from 'src/app/servicios/educacion.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { ExperienciaService } from 'src/app/servicios/experiencia.service';
-
 
 @Component({
-  selector: 'app-edit-exp',
-  templateUrl: './edit-exp.component.html',
-  styleUrls: ['./edit-exp.component.css']
+  selector: 'app-edit-edu',
+  templateUrl: './edit-edu.component.html',
+  styleUrls: ['./edit-edu.component.css']
 })
-export class EditExpComponent {
+export class EditEduComponent {
 
-  company_exp = '';
-  description_exp = '';
+  company_edu = '';
+  title_edu = '';
+  anio_edu = '';
   imagen: File | undefined;
 
   constructor(
-    private experienciaService: ExperienciaService, 
+    private educacionService: EducacionService, 
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService
   ) { }
@@ -29,11 +29,12 @@ export class EditExpComponent {
     
     const id = this.activatedRoute.snapshot.params['id'];
     const fd:any = new FormData();
+    fd.append('company_edu', this.company_edu);
+    fd.append('title_edu', this.title_edu);
+    fd.append('anio_edu', this.anio_edu);
     fd.append('imagen', this.imagen);
-    fd.append('company_exp', this.company_exp);
-    fd.append('description_exp', this.description_exp);
 
-    this.experienciaService.update(fd, id).subscribe(
+    this.educacionService.update(fd, id).subscribe(
       data => {
         this.toastr.success('Información Actualizada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'

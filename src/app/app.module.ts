@@ -14,7 +14,6 @@ import { EducationComponent } from './componentes/education/education.component'
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { ProjectsComponent } from './componentes/projects/projects.component';
 import { FooterComponent } from './componentes/footer/footer.component';
-import { PortfolioService } from './servicios/portfolio.service';
 import { HttpClientModule } from '@angular/common/http';
 import { IniciarSesionComponent } from './componentes/iniciar-sesion/iniciar-sesion.component';
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
@@ -25,6 +24,13 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { interceptorProvider } from './interceptors/header-interceptor.service';
 import { EditExpComponent } from './componentes/experience/edit-exp.component';
 import { NewExpComponent } from './componentes/experience/new-exp.component';
+import { EditPortfolioComponent } from './componentes/portfolio//edit-portfolio.component';
+import { NewEduComponent } from './componentes/education/new-edu.component';
+import { EditEduComponent } from './componentes/education/edit-edu.component';
+import { EditHabiComponent } from './componentes/skills/edit-habi.component';
+import { NewHabiComponent } from './componentes/skills/new-habi.component';
+import { NewProyComponent } from './componentes/projects/new-proy.component';
+import { EditProyComponent } from './componentes/projects/edit-proy.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,14 @@ import { NewExpComponent } from './componentes/experience/new-exp.component';
     LoginComponent,
     RegistroComponent,
     EditExpComponent,
-    NewExpComponent
+    NewExpComponent,
+    EditPortfolioComponent,
+    NewEduComponent,
+    EditEduComponent,
+    EditHabiComponent,
+    NewHabiComponent,
+    NewProyComponent,
+    EditProyComponent
   ],
   imports: [
     BrowserModule,

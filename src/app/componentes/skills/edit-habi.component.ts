@@ -1,39 +1,30 @@
 import { Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { ExperienciaService } from 'src/app/servicios/experiencia.service';
-
+import { Habilidad } from 'src/app/model/habilidad';
+import { HabilidadService } from 'src/app/servicios/habilidad.service';
 
 @Component({
-  selector: 'app-edit-exp',
-  templateUrl: './edit-exp.component.html',
-  styleUrls: ['./edit-exp.component.css']
+  selector: 'app-edit-habi',
+  templateUrl: './edit-habi.component.html',
+  styleUrls: ['./edit-habi.component.css']
 })
-export class EditExpComponent {
+export class EditHabiComponent {
 
-  company_exp = '';
-  description_exp = '';
-  imagen: File | undefined;
+  name_skill = '';
+  percent = 0;
 
   constructor(
-    private experienciaService: ExperienciaService, 
+    private habilidadService: HabilidadService, 
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService
   ) { }
 
-  onFileSelected(event: any){
-    this.imagen = <File>event.target.files[0];
-  }
-
   onUpdate(): void {
-    
     const id = this.activatedRoute.snapshot.params['id'];
-    const fd:any = new FormData();
-    fd.append('imagen', this.imagen);
-    fd.append('company_exp', this.company_exp);
-    fd.append('description_exp', this.description_exp);
+    const habi = new Habilidad(this.name_skill, this.percent);
 
-    this.experienciaService.update(fd, id).subscribe(
+    this.habilidadService.update(habi, id).subscribe(
       data => {
         this.toastr.success('Información Actualizada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'

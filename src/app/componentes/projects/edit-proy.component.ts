@@ -1,22 +1,23 @@
 import { Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { ExperienciaService } from 'src/app/servicios/experiencia.service';
-
+import { ProyectoService } from 'src/app/servicios/proyecto.service';
 
 @Component({
-  selector: 'app-edit-exp',
-  templateUrl: './edit-exp.component.html',
-  styleUrls: ['./edit-exp.component.css']
+  selector: 'app-edit-proy',
+  templateUrl: './edit-proy.component.html',
+  styleUrls: ['./edit-proy.component.css']
 })
-export class EditExpComponent {
+export class EditProyComponent {
 
-  company_exp = '';
-  description_exp = '';
+  title_project = '';
+  description_project = '';
+  github = '';
+  link = '';
   imagen: File | undefined;
 
   constructor(
-    private experienciaService: ExperienciaService, 
+    private proyectoService: ProyectoService, 
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService
   ) { }
@@ -26,14 +27,16 @@ export class EditExpComponent {
   }
 
   onUpdate(): void {
-    
+
     const id = this.activatedRoute.snapshot.params['id'];
     const fd:any = new FormData();
+    fd.append('title_project', this.title_project);
+    fd.append('description_project', this.description_project);
+    fd.append('github', this.github);
+    fd.append('link', this.link);
     fd.append('imagen', this.imagen);
-    fd.append('company_exp', this.company_exp);
-    fd.append('description_exp', this.description_exp);
 
-    this.experienciaService.update(fd, id).subscribe(
+    this.proyectoService.update(fd, id).subscribe(
       data => {
         this.toastr.success('Información Actualizada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
@@ -53,5 +56,5 @@ export class EditExpComponent {
   goBack(): void{
     document.location.href="/";
   }
-
+  
 }
