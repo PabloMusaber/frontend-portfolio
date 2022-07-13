@@ -21,7 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
-import { interceptorProvider } from './interceptors/header-interceptor.service';
+import { interceptorProvider } from './interceptors/portfolio-interceptor.service';
 import { EditExpComponent } from './componentes/experience/edit-exp.component';
 import { NewExpComponent } from './componentes/experience/new-exp.component';
 import { EditPortfolioComponent } from './componentes/portfolio//edit-portfolio.component';
