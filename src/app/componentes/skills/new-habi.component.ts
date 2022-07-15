@@ -10,8 +10,8 @@ import { HabilidadService } from 'src/app/servicios/habilidad.service';
 })
 export class NewHabiComponent {
 
-  name_skill = '';
-  percent = 0;
+  nombre = '';
+  porcentaje = 0;
 
   constructor(
     private habilidadService: HabilidadService,
@@ -20,7 +20,7 @@ export class NewHabiComponent {
 
   onCreate(): void {
 
-    const habi = new Habilidad(this.name_skill, this.percent);
+    const habi = new Habilidad(this.nombre, this.porcentaje);
     
     this.habilidadService.save(habi). subscribe(
       data => {

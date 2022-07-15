@@ -3,27 +3,27 @@
         <div class="col-md-4 mx-auto">
             <form (ngSubmit)="onUpdate()" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="company_exp">Nombre</label>
-                    <input type="text" class="form-control" id="name" name="name"
-                    [(ngModel)]="name" required>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"
+                    [(ngModel)]="nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="description_exp">Título</label>
-                    <input type="text" class="form-control" id="title-portfolio" name="title"
-                    [(ngModel)]="title" required>
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo"
+                    [(ngModel)]="titulo" required>
                 </div>
                 <div class="form-group">
-                    <label for="description_exp">Introducción</label>
-                    <input type="text" class="form-control" id="introduction" name="introduction"
-                    [(ngModel)]="introduction" required>
+                    <label for="introduccion">Introducción</label>
+                    <input type="text" class="form-control" id="introduccion" name="introduccion"
+                    [(ngModel)]="introduccion" required>
                 </div>
                 <div class="form-group">
-                    <label for="description_exp">Seleccionar foto de perfil...</label>
+                    <label for="imagen">Seleccionar foto de perfil...</label>
                     <input type="file" class="form-control" id="imagen" name="imagen"
                     (change)="onFileSelected($event)">
                 </div>
                 <div class="form-group">
-                    <label for="description_exp">Footer</label>
+                    <label for="footer">Footer</label>
                     <input type="text" class="form-control" id="footer" name="footer"
                     [(ngModel)]="footer" required>
                 </div>

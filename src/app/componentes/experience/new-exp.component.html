@@ -3,17 +3,17 @@
         <div class="col-md-4 mx-auto">
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="company_exp">Nombre de la Empresa</label>
-                    <input type="text" class="form-control" id="company_exp" name="company_exp"
-                    [(ngModel)]="company_exp" required>
+                    <label for="empresa">Nombre de la Empresa</label>
+                    <input type="text" class="form-control" id="empresa" name="empresa"
+                    [(ngModel)]="empresa" required>
                 </div>
                 <div class="form-group">
-                    <label for="description_exp">Descripción del puesto ocupado</label>
-                    <input type="text" class="form-control" id="description_exp" name="description_exp"
-                    [(ngModel)]="description_exp" required>
+                    <label for="descripcion">Descripción del puesto ocupado</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion"
+                    [(ngModel)]="descripcion" required>
                 </div>
                 <div class="form-group">
-                    <label for="description_exp">Seleccionar logo de la empresa...</label>
+                    <label for="imagen">Seleccionar logo de la empresa...</label>
                     <input type="file" class="form-control" id="imagen" name="imagen"
                     (change)="onFileSelected($event)">
                 </div>

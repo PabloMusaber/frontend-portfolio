@@ -3,14 +3,14 @@
         <div class="col-md-4 mx-auto">
             <form (ngSubmit)="onUpdate()" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="title_project">Título del Proyecto</label>
-                    <input type="text" class="form-control" id="title_project" name="title_project"
-                    [(ngModel)]="title_project" required>
+                    <label for="nombre">Nombre del Proyecto</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"
+                    [(ngModel)]="nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="description_project">Descripción</label>
-                    <input type="text" class="form-control" id="description_project" name="description_project"
-                    [(ngModel)]="description_project" required>
+                    <label for="descripcion">Descripción</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion"
+                    [(ngModel)]="descripcion" required>
                 </div>
                 <div class="form-group">
                     <label for="github">Github</label>

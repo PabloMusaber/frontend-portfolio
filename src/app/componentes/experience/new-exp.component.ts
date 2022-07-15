@@ -9,8 +9,8 @@ import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 })
 export class NewExpComponent{
 
-  company_exp = '';
-  description_exp = '';
+  empresa = '';
+  descripcion = '';
   imagen: File | undefined;
 
   constructor(
@@ -25,8 +25,8 @@ export class NewExpComponent{
   onCreate(): void {
     const fd:any = new FormData();
     fd.append('imagen', this.imagen);
-    fd.append('company_exp', this.company_exp);
-    fd.append('description_exp', this.description_exp);
+    fd.append('empresa', this.empresa);
+    fd.append('descripcion', this.descripcion);
     
     this.experienciaService.save(fd). subscribe(
       data => {

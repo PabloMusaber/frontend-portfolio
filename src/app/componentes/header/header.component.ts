@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Portfolio } from 'src/app/model/portfolio';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { TokenService } from 'src/app/servicios/token.service';
 
@@ -10,8 +9,8 @@ import { TokenService } from 'src/app/servicios/token.service';
 })
 export class HeaderComponent implements OnInit {
 
-  name = '';
-  title = '';
+  nombre = '';
+  titulo = '';
   isLogged = false;
 
   constructor(private portfolioService:PortfolioService, private tokenService: TokenService) { }
@@ -19,8 +18,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.portfolioService.obtenerDatos().subscribe(
       data => {
-        this.name=data.name;
-        this.title=data.title;
+        this.nombre=data.nombre;
+        this.titulo=data.titulo;
     });
     if(this.tokenService.getToken()){
       this.isLogged= true;

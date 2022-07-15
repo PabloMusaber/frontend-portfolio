@@ -1,12 +1,12 @@
 export class Experiencia {
-    id_exp!:number;
-    company_exp!: string;
-    description_exp!: string;
+    id!:number;
+    empresa!: string;
+    descripcion!: string;
     imagen!: File;
 
-    constructor(company_exp: string, description_exp: string, imagen:File){
-        this.company_exp = company_exp;
-        this.description_exp = description_exp;
+    constructor(empresa: string, descripcion: string, imagen:File){
+        this.empresa = empresa;
+        this.descripcion = descripcion;
         this.imagen = imagen;
     }
 

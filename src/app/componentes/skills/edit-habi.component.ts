@@ -11,8 +11,8 @@ import { HabilidadService } from 'src/app/servicios/habilidad.service';
 })
 export class EditHabiComponent {
 
-  name_skill = '';
-  percent = 0;
+  nombre = '';
+  porcentaje = 0;
 
   constructor(
     private habilidadService: HabilidadService, 
@@ -22,7 +22,7 @@ export class EditHabiComponent {
 
   onUpdate(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    const habi = new Habilidad(this.name_skill, this.percent);
+    const habi = new Habilidad(this.nombre, this.porcentaje);
 
     this.habilidadService.update(habi, id).subscribe(
       data => {

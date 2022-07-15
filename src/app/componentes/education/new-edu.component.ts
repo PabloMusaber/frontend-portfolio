@@ -8,9 +8,9 @@ import { EducacionService } from 'src/app/servicios/educacion.service';
 })
 export class NewEduComponent {
 
-  company_edu = '';
-  title_edu = '';
-  anio_edu = '';
+  institucion = '';
+  titulo = '';
+  anio = '';
   imagen: File | undefined;
 
   constructor(
@@ -24,9 +24,9 @@ export class NewEduComponent {
 
   onCreate(): void {
     const fd:any = new FormData();
-    fd.append('company_edu', this.company_edu);
-    fd.append('title_edu', this.title_edu);
-    fd.append('anio_edu', this.anio_edu);
+    fd.append('institucion', this.institucion);
+    fd.append('titulo', this.titulo);
+    fd.append('anio', this.anio);
     fd.append('imagen', this.imagen);
     
     this.educacionService.save(fd). subscribe(

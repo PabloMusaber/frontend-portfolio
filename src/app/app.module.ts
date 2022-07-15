@@ -15,7 +15,6 @@ import { SkillsComponent } from './componentes/skills/skills.component';
 import { ProjectsComponent } from './componentes/projects/projects.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { IniciarSesionComponent } from './componentes/iniciar-sesion/iniciar-sesion.component';
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -43,7 +42,6 @@ import { EditProyComponent } from './componentes/projects/edit-proy.component';
     SkillsComponent,
     ProjectsComponent,
     FooterComponent,
-    IniciarSesionComponent,
     PortfolioComponent,
     LoginComponent,
     RegistroComponent,

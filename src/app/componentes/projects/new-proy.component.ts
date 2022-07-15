@@ -9,8 +9,8 @@ import { ProyectoService } from 'src/app/servicios/proyecto.service';
 })
 export class NewProyComponent {
 
-  title_project = '';
-  description_project = '';
+  nombre = '';
+  descripcion = '';
   github = '';
   link = '';
   imagen: File | undefined;
@@ -26,8 +26,8 @@ export class NewProyComponent {
 
   onCreate(): void {
     const fd:any = new FormData();
-    fd.append('title_project', this.title_project);
-    fd.append('description_project', this.description_project);
+    fd.append('nombre', this.nombre);
+    fd.append('descripcion', this.descripcion);
     fd.append('github', this.github);
     fd.append('link', this.link);
     fd.append('imagen', this.imagen);

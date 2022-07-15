@@ -1,15 +1,15 @@
 export class Portfolio {
-    id_portfolio!: number;
-    name!: string;
-    title!: string;
-    introduction!: string;
+    id!: number;
+    nombre!: string;
+    titulo!: string;
+    introduccion!: string;
     imagen!: File;
     footer!: string;
 
-    constructor(name: string, title: string, introduction: string, imagen: File, footer: string){
-        this.name = name;
-        this.title = title;
-        this.introduction = introduction;
+    constructor(nombre: string, titulo: string, introduccion: string, imagen: File, footer: string){
+        this.nombre = nombre;
+        this.titulo = titulo;
+        this.introduccion = introduccion;
         this.imagen = imagen;
         this.footer = footer;
     }

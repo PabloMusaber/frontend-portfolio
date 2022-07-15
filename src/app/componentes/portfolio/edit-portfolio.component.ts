@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
@@ -9,9 +9,9 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class EditPortfolioComponent {
 
-  name = '';
-  title = '';
-  introduction = '';
+  nombre = '';
+  titulo = '';
+  introduccion = '';
   imagen!: File | '';
   footer = '';
 
@@ -26,9 +26,9 @@ export class EditPortfolioComponent {
 
   onUpdate(): void {
     const fd:any = new FormData();
-    fd.append('name', this.name);
-    fd.append('title', this.title);
-    fd.append('introduction', this.introduction);
+    fd.append('nombre', this.nombre);
+    fd.append('titulo', this.titulo);
+    fd.append('introduccion', this.introduccion);
     fd.append('footer', this.footer);
     fd.append('imagen', this.imagen);
     

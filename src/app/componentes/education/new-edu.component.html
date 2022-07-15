@@ -3,19 +3,19 @@
         <div class="col-md-4 mx-auto">
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="company_edu">Institución Educativa</label>
-                    <input type="text" class="form-control" id="company_edu" name="company_edu"
-                    [(ngModel)]="company_edu" required>
+                    <label for="institucion">Institución Educativa</label>
+                    <input type="text" class="form-control" id="institucion" name="institucion"
+                    [(ngModel)]="institucion" required>
                 </div>
                 <div class="form-group">
-                    <label for="title_edu">Título obtenido</label>
-                    <input type="text" class="form-control" id="title_edu" name="title_edu"
-                    [(ngModel)]="title_edu" required>
+                    <label for="titulo">Título obtenido</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo"
+                    [(ngModel)]="titulo" required>
                 </div>
                 <div class="form-group">
-                    <label for="anio_edu">Años de instrucción</label>
-                    <input type="text" class="form-control" id="anio_edu" name="anio_edu"
-                    [(ngModel)]="anio_edu" required>
+                    <label for="anio">Años de instrucción</label>
+                    <input type="text" class="form-control" id="anio" name="anio"
+                    [(ngModel)]="anio" required>
                 </div>
                 <div class="form-group">
                     <label for="description_exp">Seleccionar logo de la institución...</label>
@@ -23,8 +23,8 @@
                     (change)="onFileSelected($event)">
                 </div>
                 <div class="botones mt-3">
-                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                        <i class="fas fa-plus-circle"></i> Crear</button>
+                    <button class="btn btn-outline-success btn-block">
+                        <i class="fas fa-pencil-alt"></i> Actualizar</button>
                     <button class="btn btn-outline-primary btn-block mx-5" (click)=goBack()>
                         <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
                 </div>

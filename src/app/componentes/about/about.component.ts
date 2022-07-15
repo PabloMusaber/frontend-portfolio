@@ -9,7 +9,7 @@ import { TokenService } from 'src/app/servicios/token.service';
 })
 export class AboutComponent implements OnInit {
 
-  introduction = '';
+  introduccion = '';
   imagen = 'null.png';
   isLogged = false;
 
@@ -21,7 +21,7 @@ export class AboutComponent implements OnInit {
     
     this.datosPortfolio.obtenerDatos().subscribe(
       data =>{
-        this.introduction=data.introduction;
+        this.introduccion=data.introduccion;
         this.imagen=data.imagen;
       },
       err => {

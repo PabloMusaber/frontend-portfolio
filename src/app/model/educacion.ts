@@ -1,14 +1,14 @@
 export class Educacion {
-    id_edu!: number;
-    anio_edu!: number;
-    company_edu!: string;
-    title_edu!: string;
+    id!: number;
+    anio!: number;
+    institucion!: string;
+    titulo!: string;
     imagen!: File;
 
-    constructor(anio_edu: number, company_edu: string, title_edu: string, imagen: File){
-        this.anio_edu = anio_edu;
-        this.company_edu = company_edu;
-        this.title_edu = title_edu;
+    constructor(anio: number, institucion: string, titulo: string, imagen: File){
+        this.anio = anio;
+        this.institucion = institucion;
+        this.titulo = titulo;
         this.imagen = imagen;
     }
 

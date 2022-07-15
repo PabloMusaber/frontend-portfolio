@@ -1,15 +1,15 @@
 export class Proyecto {
-    id_project!: number;
-    title_project!: string;
-    description_project!: string;
+    id!: number;
+    nombre!: string;
+    descripcion!: string;
     github!: string;
     link!: string;
     imagen!: File;
 
-    constructor(title_project: string, description_project: string, github: string, 
+    constructor(nombre: string, descripcion: string, github: string, 
                 link: string, imagen: File){
-        this.title_project = title_project;
-        this.description_project = description_project;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
         this.github = github;
         this.link = link;
         this.imagen = imagen;
