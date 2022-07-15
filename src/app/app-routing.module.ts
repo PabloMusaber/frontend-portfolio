@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './componentes/login/login.component';
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
-import { RegistroComponent } from './componentes/registro/registro.component';
 import { NewExpComponent } from './componentes/experience/new-exp.component';
 import { EditExpComponent } from './componentes/experience/edit-exp.component';
 import { EditPortfolioComponent } from './componentes/portfolio/edit-portfolio.component';
@@ -17,7 +16,6 @@ import { PortfolioGuardService as guard} from './guards/portfolio-guard.service'
 const routes: Routes = [
   {path: '', component:PortfolioComponent},
   {path: 'login',component:LoginComponent},
-  {path: 'registro',component:RegistroComponent},
   
   {path: 'nueva-exp', component: NewExpComponent, canActivate: [guard], data: {expectedRol: ['admin', 'user']}},
   {path: 'editar-exp/:id', component: EditExpComponent, canActivate: [guard], data: {expectedRol: ['admin', 'user']}},

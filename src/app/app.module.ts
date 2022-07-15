@@ -19,7 +19,6 @@ import { PortfolioComponent } from './componentes/portfolio/portfolio.component'
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './componentes/login/login.component';
-import { RegistroComponent } from './componentes/registro/registro.component';
 import { interceptorProvider } from './interceptors/portfolio-interceptor.service';
 import { EditExpComponent } from './componentes/experience/edit-exp.component';
 import { NewExpComponent } from './componentes/experience/new-exp.component';
@@ -44,7 +43,6 @@ import { EditProyComponent } from './componentes/projects/edit-proy.component';
     FooterComponent,
     PortfolioComponent,
     LoginComponent,
-    RegistroComponent,
     EditExpComponent,
     NewExpComponent,
     EditPortfolioComponent,
