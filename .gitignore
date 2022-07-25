@@ -50,4 +50,4 @@ src/assets/img
 firebase.json
 
 # Environments
-src\environments
+src/environments
