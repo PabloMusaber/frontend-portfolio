@@ -43,3 +43,11 @@ Thumbs.db
 
 # Imágenes utilizadas en los objetos
 src/assets/img
+
+# Firebase
+.firebase/
+.firebaserc
+firebase.json
+
+# Environments
+src\environments

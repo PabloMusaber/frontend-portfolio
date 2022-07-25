@@ -29,6 +29,9 @@ import { EditHabiComponent } from './componentes/skills/edit-habi.component';
 import { NewHabiComponent } from './componentes/skills/new-habi.component';
 import { NewProyComponent } from './componentes/projects/new-proy.component';
 import { EditProyComponent } from './componentes/projects/edit-proy.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,8 @@ import { EditProyComponent } from './componentes/projects/edit-proy.component';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]

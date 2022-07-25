@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/servicios/auth.service';
@@ -23,7 +22,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
-    private router: Router,
     private toastr: ToastrService
   ) { }
 
@@ -57,7 +55,5 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-
 
 }

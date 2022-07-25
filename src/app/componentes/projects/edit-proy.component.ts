@@ -2,6 +2,8 @@ import { Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProyectoService } from 'src/app/servicios/proyecto.service';
+import { Storage, ref, uploadBytes, getDownloadURL, StorageReference} from '@angular/fire/storage';
+import { Proyecto } from 'src/app/model/proyecto';
 
 @Component({
   selector: 'app-edit-proy',
@@ -14,29 +16,46 @@ export class EditProyComponent {
   descripcion = '';
   github = '';
   link = '';
-  imagen: File | undefined;
+  imagen = '';
+  file!: File;
+  imgRef!: StorageReference;
 
   constructor(
     private proyectoService: ProyectoService, 
     private activatedRoute: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private storage: Storage
   ) { }
 
-  onFileSelected(event: any){
-    this.imagen = <File>event.target.files[0];
+  onFileSelected($event: any){
+    this.file = <File>$event.target.files[0];
+    this.imgRef = ref(this.storage, `images/${this.file.name}`);
   }
 
-  onUpdate(): void {
+  onUpload(): void {
+    if(this.file != undefined){
+      uploadBytes(this.imgRef, this.file)
+        .then(async response => {
+          console.log("Imagen subida correctamente.")
+          this.imagen = await getDownloadURL(this.imgRef);
+          this.onUpdate();
+        })
+        .catch(error => console.log(error));
+    }else{
+      this.onUpdate();
+    }
+  }
 
+  onUpdate(): void{
     const id = this.activatedRoute.snapshot.params['id'];
-    const fd:any = new FormData();
-    fd.append('nombre', this.nombre);
-    fd.append('descripcion', this.descripcion);
-    fd.append('github', this.github);
-    fd.append('link', this.link);
-    fd.append('imagen', this.imagen);
-
-    this.proyectoService.update(fd, id).subscribe(
+    const proyecto = new Proyecto(
+      this.nombre, 
+      this.descripcion,
+      this.github,
+      this.link,
+      this.imagen
+    );
+    this.proyectoService.update(proyecto, id).subscribe(
       data => {
         this.toastr.success('Información Actualizada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'

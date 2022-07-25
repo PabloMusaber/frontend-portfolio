@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Portfolio } from '../model/portfolio';
+import { environment } from './../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PortfolioService {
   
-  portfolioURL = 'http://localhost:8080/portfolio/';
+  portfolioURL = environment.portfolioURL;
 
   constructor(private httpClient:HttpClient) { }
 

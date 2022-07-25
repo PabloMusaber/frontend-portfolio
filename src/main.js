@@ -1,3 +1,8 @@
+window.onload = function(){
+  $('#onload').fadeOut();
+  $('body').removeClass('hidden');
+}
+
 var nav = document.querySelector('nav');
 
       window.addEventListener('scroll', function () {
@@ -7,8 +12,6 @@ var nav = document.querySelector('nav');
           nav.classList.remove('bg-dark', 'shadow');
         }
       });
-
-
 
 $(document).ready(function ($) {
 function animateElements() {
@@ -32,6 +35,7 @@ function animateElements() {
         }
     });
 }
+
 animateElements();
 $(window).scroll(animateElements);
 });

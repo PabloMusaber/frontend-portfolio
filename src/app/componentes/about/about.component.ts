@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/servicios/token.service';
 export class AboutComponent implements OnInit {
 
   introduccion = '';
-  imagen = 'null.png';
+  imagen = 'https://firebasestorage.googleapis.com/v0/b/newfront-f82e0.appspot.com/o/images%2Fnull.png?alt=media&token=15b33532-8656-4f0d-89eb-7112adef6432';
   isLogged = false;
 
   constructor(

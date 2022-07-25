@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { Storage, ref, uploadBytes, getDownloadURL, StorageReference} from '@angular/fire/storage';
+import { Portfolio } from 'src/app/model/portfolio';
 
 @Component({
   selector: 'app-edit-portfolio',
@@ -12,27 +14,45 @@ export class EditPortfolioComponent {
   nombre = '';
   titulo = '';
   introduccion = '';
-  imagen!: File | '';
   footer = '';
+  imagen = '';
+  file!: File;
+  imgRef!: StorageReference;
+
 
   constructor(
     private portfolioService: PortfolioService, 
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private storage: Storage
   ) { }
 
-  onFileSelected(event: any){
-    this.imagen = <File>event.target.files[0];
+  onFileSelected($event: any){
+    this.file = <File>$event.target.files[0];
+    this.imgRef = ref(this.storage, `images/${this.file.name}`);
   }
 
-  onUpdate(): void {
-    const fd:any = new FormData();
-    fd.append('nombre', this.nombre);
-    fd.append('titulo', this.titulo);
-    fd.append('introduccion', this.introduccion);
-    fd.append('footer', this.footer);
-    fd.append('imagen', this.imagen);
-    
-    this.portfolioService.update(fd).subscribe(
+  onUpload(): void {
+    if(this.file != undefined){
+      uploadBytes(this.imgRef, this.file)
+        .then(async response => {
+          console.log("Imagen subida correctamente.")
+          this.imagen = await getDownloadURL(this.imgRef);
+          this.onUpdate();
+        })
+        .catch(error => console.log(error));
+    }else{
+      this.onUpdate();
+    }
+  }
+
+  onUpdate(): void{
+    const portfolio = new Portfolio(
+      this.nombre, 
+      this.titulo,
+      this.introduccion,
+      this.imagen,
+      this.footer);
+    this.portfolioService.update(portfolio).subscribe(
       data => {
         this.toastr.success('Portfolio Actualizado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'

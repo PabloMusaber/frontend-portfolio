@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-md-4 mx-auto">
-            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <form (ngSubmit)="onUpload()" novalidate #f="ngForm">
                 <div class="form-group">
                     <label for="nombre">Nombre del Proyecto</label>
                     <input type="text" class="form-control" id="nombre" name="nombre"
@@ -28,10 +28,8 @@
                     (change)="onFileSelected($event)">
                 </div>
                 <div class="botones mt-3">
-                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                        <i class="fas fa-plus-circle"></i> Crear</button>
-                    <button class="btn btn-outline-primary btn-block mx-5" (click)=goBack()>
-                        <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Crear</button>
+                    <button class="btn btn-outline-primary btn-block mx-5" (click)=goBack()>Volver</button>
                 </div>
             </form>
         </div>

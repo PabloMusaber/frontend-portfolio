@@ -1,6 +1,8 @@
 import { Component} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import { Storage, ref, uploadBytes, getDownloadURL, StorageReference} from '@angular/fire/storage';
+import { Experiencia } from 'src/app/model/experiencia';
 
 @Component({
   selector: 'app-new-exp',
@@ -11,24 +13,42 @@ export class NewExpComponent{
 
   empresa = '';
   descripcion = '';
-  imagen: File | undefined;
+  imagen = '';
+  file!: File;
+  imgRef!: StorageReference;
 
   constructor(
     private experienciaService: ExperienciaService, 
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private storage: Storage
   ) { }
 
-  onFileSelected(event: any){
-    this.imagen = <File>event.target.files[0];
+  onFileSelected($event: any){
+    this.file = <File>$event.target.files[0];
+    this.imgRef = ref(this.storage, `images/${this.file.name}`);
+  }
+
+  onUpload(): void {
+    if(this.file != undefined){
+      uploadBytes(this.imgRef, this.file)
+        .then(async response => {
+          console.log("Imagen subida correctamente.")
+          this.imagen = await getDownloadURL(this.imgRef);
+          this.onCreate();
+        })
+        .catch(error => console.log(error));
+    }else{
+      this.onCreate();
+    }
   }
 
   onCreate(): void {
-    const fd:any = new FormData();
-    fd.append('imagen', this.imagen);
-    fd.append('empresa', this.empresa);
-    fd.append('descripcion', this.descripcion);
-    
-    this.experienciaService.save(fd). subscribe(
+    const experiencia = new Experiencia(
+      this.empresa, 
+      this.descripcion,
+      this.imagen
+    );
+    this.experienciaService.save(experiencia). subscribe(
       data => {
         this.toastr.success('Experiencia laboral creada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'

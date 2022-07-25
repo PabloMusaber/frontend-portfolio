@@ -2,6 +2,8 @@ import { Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import { Storage, ref, uploadBytes, getDownloadURL, StorageReference} from '@angular/fire/storage';
+import { Experiencia } from 'src/app/model/experiencia';
 
 
 @Component({
@@ -13,27 +15,44 @@ export class EditExpComponent {
 
   empresa = '';
   descripcion = '';
-  imagen: File | undefined;
+  imagen = '';
+  file!: File;
+  imgRef!: StorageReference;
 
   constructor(
     private experienciaService: ExperienciaService, 
     private activatedRoute: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private storage: Storage
   ) { }
 
-  onFileSelected(event: any){
-    this.imagen = <File>event.target.files[0];
+  onFileSelected($event: any){
+    this.file = <File>$event.target.files[0];
+    this.imgRef = ref(this.storage, `images/${this.file.name}`);
   }
 
-  onUpdate(): void {
-    
-    const id = this.activatedRoute.snapshot.params['id'];
-    const fd:any = new FormData();
-    fd.append('imagen', this.imagen);
-    fd.append('empresa', this.empresa);
-    fd.append('descripcion', this.descripcion);
+  onUpload(): void {
+    if(this.file != undefined){
+      uploadBytes(this.imgRef, this.file)
+        .then(async response => {
+          console.log("Imagen subida correctamente.")
+          this.imagen = await getDownloadURL(this.imgRef);
+          this.onUpdate();
+        })
+        .catch(error => console.log(error));
+    }else{
+      this.onUpdate();
+    }
+  }
 
-    this.experienciaService.update(fd, id).subscribe(
+  onUpdate(): void{
+    const id = this.activatedRoute.snapshot.params['id'];
+    const experiencia = new Experiencia(
+      this.empresa, 
+      this.descripcion,
+      this.imagen
+    );
+    this.experienciaService.update(experiencia, id).subscribe(
       data => {
         this.toastr.success('Información Actualizada', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
